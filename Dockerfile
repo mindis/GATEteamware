@@ -32,14 +32,15 @@ RUN cp -a /tmp/trunk /trunk
 
 #More sql setup stuff to go here
 
-RUN cp /tmp/build.properties /trunk
+RUN cp /tmp/build.properties /trunk/teamware-build.properties
 RUN cp /tmp/install.properties /trunk
 #more config needed here
 
 #install from the local volume /tmp/trunk
 RUN cd /trunk
-RUN ant -propertyfile install.properties dist
+#RUN ant -propertyfile install.properties dist
 #RUN java -jar dist/install.jar
+RUN ant install
 
 #Finally run the GATE service via tomcat
 #EXPOSE      8080

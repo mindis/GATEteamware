@@ -9,6 +9,7 @@ Help gratefully received.
 - mysql setup and linkages
 - mysql parameters in gate image
 - build.properties perams
+- install.properties perams
 
 ## Possible issues to investigate
 
