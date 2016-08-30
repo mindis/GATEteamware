@@ -1,4 +1,4 @@
-# NOT YET WORKING - this is not finished yet!
+# NOT YET WORKING - not finished
 
 Help gratefully received.
 
