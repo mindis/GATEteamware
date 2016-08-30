@@ -14,12 +14,13 @@ Help gratefully received.
 
 1. openjdk-6-jre vs openjdk-8-jre
 2. use of openjkd at all instead of the specified Oracle Java JDK - does it build properly?
+3. ANT_VERSION 1.9.7 vs the specified 1.8.4 (which didn't seem to build)
 
 # Gate General Architecture Text Extraction - unofficial
 
-GATE Teamware provides a collaborative platform for text processing to extract entities, relations and coreference. [1]
+GATE Teamware provides a collaborative platform for text processing to extract entities, relations and correference. [1]
 
-GATE Teamwhere is [hosted by sourceforge](https://sourceforge.net/p/gate/code/HEAD/tree/teamware/trunk/)
+GATE Teamware is [hosted by sourceforge](https://sourceforge.net/p/gate/code/HEAD/tree/teamware/trunk/)
 
 ## General disclaimer / plea
 

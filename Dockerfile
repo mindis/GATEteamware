@@ -16,7 +16,7 @@ RUN apt-get update \
     perl \
     wget
 
-ENV ANT_VERSION 1.8.4
+ENV ANT_VERSION 1.9.7
 RUN cd tmp && \
     wget -q http://archive.apache.org/dist/ant/binaries/apache-ant-${ANT_VERSION}-bin.tar.gz && \
     tar -xzf apache-ant-${ANT_VERSION}-bin.tar.gz && \
@@ -33,15 +33,18 @@ RUN cp -a /tmp/trunk /trunk
 #More sql setup stuff to go here
 
 RUN cp /tmp/build.properties /trunk
+RUN cp /tmp/install.properties /trunk
 #more config needed here
 
 #install from the local volume /tmp/trunk
-RUN cd trunk && ant install
+RUN cd trunk
+RUN ant -propertyfile install.properties dist
+#RUN java -jar dist/install.jar
 
 #Finally run the GATE service via tomcat
-EXPOSE      8080
-RUN ip -4 address
-RUN cd /trunk/tomcat6/bin/ && ./catalina.sh run
+#EXPOSE      8080
+#RUN ip -4 address
+#RUN cd /trunk/tomcat6/bin/ && ./catalina.sh run
 
 
 CMD ["/bin/bash"]
