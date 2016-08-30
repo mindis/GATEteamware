@@ -37,7 +37,7 @@ RUN cp /tmp/install.properties /trunk
 #more config needed here
 
 #install from the local volume /tmp/trunk
-RUN cd trunk
+RUN cd /trunk
 RUN ant -propertyfile install.properties dist
 #RUN java -jar dist/install.jar
 
