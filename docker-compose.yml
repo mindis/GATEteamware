@@ -1,0 +1,25 @@
+version: '2'
+services:
+  db:
+      image: mysql
+      restart: always
+      environment:
+          MYSQL_ROOT_PASSWORD: somepassword
+          MYSQL_USER: gate
+          MYSQL_PASSWORD: gate
+          HOSTNAME: gatedb
+  gate:
+    build: .
+    #volumes:
+    # - .:/code
+    environment:
+        MYSQL_USER: gate
+        MYSQL_PASSWORD: gate
+        HOSTNAME: gateapp
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - "8080:8080"
+    #restart: always
