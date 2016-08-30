@@ -1,16 +1,27 @@
+# NOT YET WORKING - this is not finished yet!
+
+Help gratefully received.
+
+--------------------------------------------------------------------------------
+
+## Todo
+
+- mysql setup and linkages
+- mysql parameters in gate image
+- build.properties perams
+
+## Possible issues to investigate
+
+1. openjdk-6-jre vs openjdk-8-jre
+2. use of openjkd at all instead of the specified Oracle Java JDK - does it build properly?
+
 # Gate General Architecture Text Extraction - unofficial
 
 GATE Teamware provides a collaborative platform for text processing to extract entities, relations and coreference. [1]
 
 GATE Teamwhere is [hosted by sourceforge](https://sourceforge.net/p/gate/code/HEAD/tree/teamware/trunk/)
 
-# TODO - this is not finished yet!
-
-- mysql setup and linkages
-- mysql perameters in gate image
-- build.properties perams
-
-## General disclamer / plea
+## General disclaimer / plea
 
 This is my first attempt at a more complex docker build, so be nice! Comments & suggestions welcomed.
 
@@ -27,15 +38,17 @@ This is my first attempt at a more complex docker build, so be nice! Comments & 
 
 ## Customise Install
 
-- I'm useing a lan apt-cache-ng server, so you need to remove the `RUN echo 'Acquire::http { Proxy "http://192.168.0.210:3142"; };' >> /etc/apt/apt.conf.d/01proxy` line
+- I'm using a lan apt-cache-ng server, so you need to remove the `RUN echo 'Acquire::http { Proxy "http://192.168.0.210:3142"; };' >> /etc/apt/apt.conf.d/01proxy` line
 - Download gate from sourceforge and place the `trunk` folder in the same folder as the docker file. It gets loaded and copied to the image when it's built. I did this to stop me having to thrash my bw and the sourceforge servers every re-build!
 - loads more setup to do for the MySQL db - todo!
 
 ## Licence
 
-Teamware is available under the [GNU Affero General Public Licence 3.0](http://www.gnu.org/licenses/agpl-3.0.html) so you are free to use/abuse the source, but must not sublicence without permission [2].
+GATE Teamware is available under the [GNU Affero General Public Licence 3.0](http://www.gnu.org/licenses/agpl-3.0.html) so as I understand you are free to use the source, but must not sublicence without permission [2].
 
-As for this docker file - do what you like.
+I'm trying to avoid the Oracle behemoth by using openjdk.
+
+As for this docker file - do what you like. Let me know how you get on.
 
 ## This was build by..
 

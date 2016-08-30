@@ -7,11 +7,12 @@ RUN  echo 'Acquire::http { Proxy "http://192.168.0.210:3142"; };' >> /etc/apt/ap
 RUN apt-get update \
     && \
     apt-get install -y \
-    software-properties-common \
+    #software-properties-common \
     #subversion \  # these are needed if you want to SVN gate from the repository
     #libapache2-svn \
     default-jdk \
-    #openjdk-8-jre \
+    # had to use this as I openjdk-6-jre dosnt seem to have tools.jar
+    #openjdk-6-jre \
     perl \
     wget
 
