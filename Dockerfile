@@ -17,8 +17,8 @@ RUN apt-get update \
     wget \
     openssh-server \
     apache2 \
-    supervisor \
-    mysql-client
+    mysql-client \
+    iputils-ping
 
 
 ENV ANT_VERSION 1.9.7
@@ -30,19 +30,9 @@ RUN cd tmp && \
     rm apache-ant-${ANT_VERSION}-bin.tar.gz
 ENV ANT_HOME /opt/ant
 ENV PATH ${PATH}:/opt/ant/bin
-ENV BASEDIR /home/teamware/safe
-
 
 #Mount local dir context for GATE download and setup files
-ADD . /tmp
-
-# rough and ready 'keep-alive; with supervisor
-#EXPOSE 22 80
-#RUN mkdir -p /var/lock/apache2 /var/run/apache2 /var/run/sshd /var/log/supervisor
-#RUN cp /tmp/supervisord.conf /etc/supervisor/conf.d/supervisord.conf && \
-#    /usr/bin/supervisord
-
-#More sql setup stuff to go here
+COPY . /tmp
 
 #Copy the GATE download to the image
 #CP files to /tmp
@@ -61,7 +51,8 @@ RUN cd / && java -jar /trunk/dist/install.jar text-auto
 RUN cd /trunk && ant install
 
 #Finally run the GATE service via tomcat
-#EXPOSE      8080
-#RUN ip -4 address
-#RUN cd /trunk/tomcat6/bin/ && chmod 775 catalina.sh && ./catalina.sh run
+#RUN export /trunk/tomcat6
+#CMD ["env","BASEDIR=/trunk/tomcat6"]
+RUN ip -4 address
+RUN cd /trunk/tomcat6/bin/ && chmod 775 catalina.sh && ./catalina.sh run
 CMD ["/bin/bash"]

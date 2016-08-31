@@ -1,14 +1,5 @@
 version: '2'
 services:
-  db:
-      image: mysql
-      container_name: gatedb
-      restart: always
-      environment:
-          MYSQL_ROOT_PASSWORD: somepassword
-          #MYSQL_USER: gate
-          #MYSQL_PASSWORD: gate
-          HOSTNAME: gatedb
   gate:
     build: .
     container_name: gateapp
@@ -18,10 +9,6 @@ services:
         MYSQL_USER: root
         MYSQL_PASSWORD: somepassword
         HOSTNAME: gateapp
-    depends_on:
-      - db
-    links:
-      - db
     ports:
       - "8080:8080"
     #restart: always
