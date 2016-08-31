@@ -6,16 +6,17 @@ Help gratefully received.
 
 ## Todo
 
-- mysql setup and linkages
-- mysql parameters in gate image
-- build.properties perams
-- install.properties perams
+- MYSQL connection refused error on install
+- lockdown and secure
+- migrate setup perams to docker-compose.yml
 
 ## Possible issues to investigate
 
 1. openjdk-6-jre vs openjdk-8-jre
-2. use of openjkd at all instead of the specified Oracle Java JDK - does it build properly?
-3. ANT_VERSION 1.9.7 vs the specified 1.8.4 (which didn't seem to build)
+
+  - seems to build with openjdk-8
+
+2. ANT_VERSION 1.9.7 vs the specified 1.8.4 (which didn't seem to build)
 
 # Gate General Architecture Text Extraction - unofficial
 
@@ -42,7 +43,8 @@ This is my first attempt at a more complex docker build, so be nice! Comments & 
 
 - I'm using a lan apt-cache-ng server, so you need to remove the `RUN echo 'Acquire::http { Proxy "http://192.168.0.210:3142"; };' >> /etc/apt/apt.conf.d/01proxy` line
 - Download gate from sourceforge and place the `trunk` folder in the same folder as the docker file. It gets loaded and copied to the image when it's built. I did this to stop me having to thrash my bw and the sourceforge servers every re-build!
-- loads more setup to do for the MySQL db - todo!
+- change default values to suite env in antinstall-config.xml
+- mirror values in build.properties
 
 ## Licence
 
