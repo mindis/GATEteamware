@@ -4,13 +4,11 @@ Help gratefully received.
 
 # Gate General Architecture Text Extraction - unofficial
 
-GATE Teamware provides a collaborative platform for text processing to extract entities, relations and correference. [1]
-
-## GATE Teamware is [hosted by sourceforge](https://sourceforge.net/p/gate/code/HEAD/tree/teamware/trunk/)
+GATE Teamware provides a collaborative platform for text processing to extract entities, relations and correference. [1] GATE Teamware is [hosted by sourceforge](https://sourceforge.net/p/gate/code/HEAD/tree/teamware/trunk/)
 
 ## Todo
 
-- fix BASEDIR issue on start
+- runninr `ant install` on container start seems to exit the container. An error on install quits the container. fix BASEDIR issue on start
 - lockdown and secure
 - migrate setup perams to docker-compose.yml
 
@@ -39,6 +37,7 @@ This is my first attempt at a more complex docker build, so be nice! Comments & 
 
 ## Customise Install
 
+- build and run the db first, it needs to be running for the app to finnish building. e.g. it needs to access the db.
 - I'm using a lan apt-cache-ng server, so you need to remove the `RUN echo 'Acquire::http { Proxy "http://192.168.0.210:3142"; };' >> /etc/apt/apt.conf.d/01proxy` line
 - Download gate from sourceforge and place the `trunk` folder in the same folder as the docker file. It gets loaded and copied to the image when it's built. I did this to stop me having to thrash my bw and the sourceforge servers every re-build!
 - change default values to suite env in antinstall-config.xml
