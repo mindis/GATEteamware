@@ -8,13 +8,9 @@ GATE Teamware provides a collaborative platform for text processing to extract e
 
 ## GATE Teamware is [hosted by sourceforge](https://sourceforge.net/p/gate/code/HEAD/tree/teamware/trunk/)
 
-## Branch notes
-
-- Containerised the db, connection works from shell, and if installed from shell but not from image build ???
-
 ## Todo
 
-- MYSQL connection refused error on install
+- fix BASEDIR issue on start
 - lockdown and secure
 - migrate setup perams to docker-compose.yml
 
