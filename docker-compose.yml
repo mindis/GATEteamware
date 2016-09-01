@@ -1,29 +1,23 @@
 version: '2'
 services:
-  db:
+    db:
       image: mysql
+      hostname: mysql
       container_name: gatedb
-      restart: always
       environment:
-          MYSQL_ROOT_PASSWORD: somepassword
-          #MYSQL_USER: gate
-          #MYSQL_PASSWORD: gate
-          HOSTNAME: gatedb
-  gate:
-    build: .
-    container_name: gateapp
-    #volumes:
-    # - .:/code
-    environment:
-        MYSQL_USER: root
-        MYSQL_PASSWORD: somepassword
-        HOSTNAME: gateapp
-    depends_on:
-      - db
-    links:
-      - db
-    ports:
-      - "8080:8080"
-    #restart: always
-    tty: true
-    stdin_open: true
+            MYSQL_ROOT_PASSWORD: gate
+            MYSQL_USER: gate
+            MYSQL_PASSWORD: gate
+    app:
+        build: .
+        hostname: app
+        container_name: gateapp
+        environment:
+            BASEDIR: /trunk/tomcat6
+            CATALINA_HOME: /trunk/tomcat6
+        depends_on:
+            - db
+        links:
+            - db:mysql
+        tty: true
+        stdin_open: true

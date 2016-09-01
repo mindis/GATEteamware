@@ -2,7 +2,15 @@
 
 Help gratefully received.
 
---------------------------------------------------------------------------------
+# Gate General Architecture Text Extraction - unofficial
+
+GATE Teamware provides a collaborative platform for text processing to extract entities, relations and correference. [1]
+
+## GATE Teamware is [hosted by sourceforge](https://sourceforge.net/p/gate/code/HEAD/tree/teamware/trunk/)
+
+## Branch notes
+
+- Containerised the db, connection works from shell, and if installed from shell but not from image build ???
 
 ## Todo
 
@@ -17,12 +25,6 @@ Help gratefully received.
   - seems to build with openjdk-8
 
 2. ANT_VERSION 1.9.7 vs the specified 1.8.4 (which didn't seem to build)
-
-# Gate General Architecture Text Extraction - unofficial
-
-GATE Teamware provides a collaborative platform for text processing to extract entities, relations and correference. [1]
-
-GATE Teamware is [hosted by sourceforge](https://sourceforge.net/p/gate/code/HEAD/tree/teamware/trunk/)
 
 ## General disclaimer / plea
 
