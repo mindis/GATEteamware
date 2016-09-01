@@ -20,10 +20,10 @@ RUN cd /trunk && ant -propertyfile install.properties dist
 #Prep the installer using the custom antintall-config file
 RUN cd / && java -jar /trunk/dist/install.jar text-auto
 #Run installer
-RUN cd /trunk && ant install
+#RUN cd /trunk && ant install
 #FAIL POINT - It's at this point that it fails if it can't find the DB
 
-RUN ip -4 address
-RUN cd /trunk/tomcat6/bin/ && chmod 775 catalina.sh && ./catalina.sh run
+#RUN ip -4 address
+#RUN cd /trunk/tomcat6/bin/ && chmod 775 catalina.sh && ./catalina.sh run
 
 CMD ["/bin/bash"]
