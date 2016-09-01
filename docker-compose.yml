@@ -1,10 +1,10 @@
 version: '2'
 services:
     db:
-      image: mysql
-      hostname: mysql
-      container_name: gatedb
-      environment:
+        image: mysql
+        hostname: mysql
+        container_name: gatedb
+        environment:
             MYSQL_ROOT_PASSWORD: gate
             MYSQL_USER: gate
             MYSQL_PASSWORD: gate
