@@ -8,6 +8,10 @@ services:
             MYSQL_ROOT_PASSWORD: gate
             MYSQL_USER: gate
             MYSQL_PASSWORD: gate
+        networks:
+            app_net:
+                ipv4_address: 172.16.238.10
+                ipv6_address: 2001:3984:3989::10
     app:
         build: .
         hostname: app
@@ -21,3 +25,19 @@ services:
             - db:mysql
         tty: true
         stdin_open: true
+        networks:
+            app_net:
+                ipv4_address: 172.16.238.11
+                ipv6_address: 2001:3984:3989::11
+networks:
+  app_net:
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "true"
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.16.238.0/24
+        gateway: 172.16.238.1
+      - subnet: 2001:3984:3989::/64
+        gateway: 2001:3984:3989::1

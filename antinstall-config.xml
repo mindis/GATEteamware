@@ -119,7 +119,7 @@
     displayText="Database Configuration">
     <text
         property="databaseHost"
-        defaultValue="mysql"
+        defaultValue="172.16.238.10"
         displayText="Database Host"/>
     <text
         property="databaseName"
